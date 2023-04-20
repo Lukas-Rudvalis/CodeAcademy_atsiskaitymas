@@ -6,11 +6,13 @@ import AddShopPage from './pages/AddShopPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import GlobalStyle from './styles/GlobalStyle';
+import Header from './components/layout/Header';
 
 function App() {
   return (
     <div>
       <GlobalStyle />
+      <Header />
       <Routes>
         <Route path="/" element={<ShopsPage />} />
         <Route path="/add" element={<AddShopPage />} />

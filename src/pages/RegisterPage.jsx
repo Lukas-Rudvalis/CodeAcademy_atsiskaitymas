@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from '../components/layout/Header';
+import RegisterForm from '../components/auth/RegisterForm';
 
 function RegisterPage() {
   return (
     <div>
-      <Header />
-      <h1>RegisterPage</h1>
+      <RegisterForm />
     </div>
   );
 }
