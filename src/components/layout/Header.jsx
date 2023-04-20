@@ -4,23 +4,10 @@ import Container from '../ui/Container';
 import Button from '../ui/Button';
 import styled from 'styled-components';
 import { useAuthCtx } from '../../store/AuthProvider';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
 import Logout from '../auth/Logout';
 
 function Header() {
   const { isLoggedIn } = useAuthCtx();
-
-  function logoutFire() {
-    signOut(auth)
-      .then(() => {
-        console.log('logged out');
-      })
-      .catch((error) => {
-        // An error happened.
-        console.warn(error);
-      });
-  }
 
   return (
     <SHeader className="mb20">
