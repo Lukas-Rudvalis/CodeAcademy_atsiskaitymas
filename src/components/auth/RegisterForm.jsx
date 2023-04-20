@@ -6,8 +6,9 @@ import Button from '../../components/ui/Button';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-function RegisterForm() {
+function RegisterForm({ onRegister }) {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -19,7 +20,9 @@ function RegisterForm() {
         .min(6, 'At least 6 symbols')
         .required('Required field'),
     }),
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      onRegister(values);
+    },
   });
 
   return (
@@ -55,7 +58,9 @@ function RegisterForm() {
               <ErrorMsg>{formik.errors.password}</ErrorMsg>
             ) : null}
           </div>
-          <Button className="mt20">Register</Button>
+          <Button type="submit" className="mt20">
+            Register
+          </Button>
         </form>
       </Container>
     </div>
@@ -65,6 +70,12 @@ function RegisterForm() {
 const ErrorMsg = styled.p`
   color: var(--error);
   font-size: 12px;
+  text-align: left;
+  margin-left: 20px;
 `;
+
+RegisterForm.propTypes = {
+  onRegister: PropTypes.func,
+};
 
 export default RegisterForm;

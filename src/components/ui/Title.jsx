@@ -26,7 +26,7 @@ const STitle = styled.div`
 Title.propTypes = {
   children: PropTypes.string.isRequired,
   fz: PropTypes.number,
-  h: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
+  h: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   className: PropTypes.string,
 };
 

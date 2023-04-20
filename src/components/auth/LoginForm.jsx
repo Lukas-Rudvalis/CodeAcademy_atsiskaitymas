@@ -6,8 +6,9 @@ import Button from '../../components/ui/Button';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-function LoginForm() {
+function LoginForm({ onLogin }) {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -19,7 +20,9 @@ function LoginForm() {
         .min(6, 'At least 6 symbols')
         .required('Required field'),
     }),
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      onLogin(values);
+    },
   });
 
   return (
@@ -55,7 +58,9 @@ function LoginForm() {
               <ErrorMsg>{formik.errors.password}</ErrorMsg>
             ) : null}
           </div>
-          <Button className="mt20">Login</Button>
+          <Button type="submit" className="mt20">
+            Login
+          </Button>
         </form>
       </Container>
     </div>
@@ -65,6 +70,12 @@ function LoginForm() {
 const ErrorMsg = styled.p`
   color: var(--error);
   font-size: 12px;
+  text-align: left;
+  margin-left: 20px;
 `;
+
+LoginForm.propTypes = {
+  onLogin: PropTypes.func,
+};
 
 export default LoginForm;

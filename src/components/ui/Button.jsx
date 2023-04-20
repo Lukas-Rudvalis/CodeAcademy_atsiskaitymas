@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-function Button({ children, className }) {
-  return <SButton className={className}>{children}</SButton>;
+function Button({ children, className, type }) {
+  return (
+    <SButton className={className} type={type}>
+      {children}
+    </SButton>
+  );
 }
 
 const SButton = styled.button`
@@ -25,8 +29,9 @@ const SButton = styled.button`
 `;
 
 Button.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.string.isRequired,
   className: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Button;
