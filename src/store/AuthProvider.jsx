@@ -1,6 +1,7 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/firebase';
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext({
   user: {},
@@ -22,6 +23,10 @@ function AuthProvider({ children }) {
     <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>
   );
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.element,
+};
 
 export default AuthProvider;
 export function useAuthCtx() {

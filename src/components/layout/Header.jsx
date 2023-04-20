@@ -6,17 +6,19 @@ import styled from 'styled-components';
 import { useAuthCtx } from '../../store/AuthProvider';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
+import Logout from '../auth/Logout';
 
 function Header() {
-  const { isLoggedIn, logout } = useAuthCtx();
+  const { isLoggedIn } = useAuthCtx();
 
   function logoutFire() {
     signOut(auth)
       .then(() => {
-        logout();
+        console.log('logged out');
       })
       .catch((error) => {
         // An error happened.
+        console.warn(error);
       });
   }
 
@@ -27,13 +29,15 @@ function Header() {
           <img src="/logo.png" alt="logo" />
         </NavLink>
         <Nav>
-          <NavLink to={'/'}>Shops</NavLink>
-          <NavLink to={'/add'}>Add Shop</NavLink>
-          <NavLink to={'/register'}>Register</NavLink>
-          <NavLink to={'/login'}>
-            <HeaderButton>Login</HeaderButton>
-          </NavLink>
-          <HeaderButton onClick={logoutFire}>Logout</HeaderButton>
+          {isLoggedIn && <NavLink to={'/'}>Shops</NavLink>}
+          {isLoggedIn && <NavLink to={'/add'}>Add Shop</NavLink>}
+          {!isLoggedIn && <NavLink to={'/register'}>Register</NavLink>}
+          {!isLoggedIn && (
+            <NavLink to={'/login'}>
+              <LoginButton>Login</LoginButton>
+            </NavLink>
+          )}
+          {isLoggedIn && <Logout />}
         </Nav>
       </Container>
     </SHeader>
@@ -59,7 +63,7 @@ const Nav = styled.nav`
   }
 `;
 
-const HeaderButton = styled(Button)`
+const LoginButton = styled(Button)`
   background-color: var(--brown);
   border: 1px solid var(--brown);
   font-size: 16px;
