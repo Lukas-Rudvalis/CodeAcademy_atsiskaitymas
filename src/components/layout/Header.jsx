@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 function Header() {
   return (
-    <SHeader>
+    <SHeader className="mb20">
       <Container className="flex">
         <NavLink to={'/'}>
           <img src="/logo.png" alt="logo" />
@@ -26,7 +26,7 @@ function Header() {
 }
 
 const SHeader = styled.header`
-  padding: 34px 10px;
+  padding: 34px 0px;
 
   .active {
     color: var(--gray);
@@ -37,6 +37,11 @@ const Nav = styled.nav`
   display: flex;
   gap: 10px;
   align-items: center;
+  font-weight: 600;
+
+  > a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const HeaderButton = styled(Button)`
