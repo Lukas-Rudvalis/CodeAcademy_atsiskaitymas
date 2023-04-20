@@ -7,6 +7,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import GoogleLogin from './GoogleLogin';
+import { Link } from 'react-router-dom';
 
 function LoginForm({ onLogin }) {
   const formik = useFormik({
@@ -31,7 +33,7 @@ function LoginForm({ onLogin }) {
         <Title fz={4} className="mb20">
           Login
         </Title>
-        <form onSubmit={formik.handleSubmit} className="flex-form">
+        <Form onSubmit={formik.handleSubmit} className="flex-form">
           <div>
             <InputField
               type="email"
@@ -61,11 +63,34 @@ function LoginForm({ onLogin }) {
           <Button type="submit" className="mt20">
             Login
           </Button>
-        </form>
+        </Form>
+        <GoogleLogin />
+        <Text className="mt20">
+          Don't have an account yet? <Link to={'/register'}>Register</Link>
+        </Text>
       </Container>
     </div>
   );
 }
+
+const Form = styled.form`
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-gray);
+`;
+
+const Text = styled.p`
+  color: var(--gray);
+  font-size: 14px;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--brown);
+    }
+  }
+`;
 
 const ErrorMsg = styled.p`
   color: var(--error);
