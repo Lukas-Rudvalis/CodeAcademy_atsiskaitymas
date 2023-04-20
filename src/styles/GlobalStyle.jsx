@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
   --green-hover: #26584a;
   --brown: #caa892;
   --brown-hover: #a88b78;
+  --error: #ec4848;
   }
 
   img {
@@ -53,6 +54,9 @@ const GlobalStyle = createGlobalStyle`
 
   .mb20{
     margin-bottom: 20px;
+  }
+  .mt20{
+    margin-top: 20px;
   }
 
   .flex{

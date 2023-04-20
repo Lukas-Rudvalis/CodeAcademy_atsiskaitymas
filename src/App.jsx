@@ -1,6 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-// import './styles/reset.css';
-// import './styles/variables.css';
 import ShopsPage from './pages/ShopsPage';
 import AddShopPage from './pages/AddShopPage';
 import LoginPage from './pages/LoginPage';
