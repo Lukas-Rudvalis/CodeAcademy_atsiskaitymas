@@ -8,6 +8,8 @@ function Container({ children, className }) {
 
 const SContainer = styled.div`
   max-width: 1200px;
+  padding-right: 10px;
+  padding-left: 10px;
   margin: 0 auto;
 `;
 
