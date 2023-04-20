@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-function Button({ children, className, type }) {
+function Button({ children, className, type, onClick }) {
   return (
-    <SButton className={className} type={type}>
+    <SButton onClick={onClick} className={className} type={type}>
       {children}
     </SButton>
   );
@@ -32,6 +32,7 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   className: PropTypes.string,
   type: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Button;

@@ -3,8 +3,23 @@ import { NavLink } from 'react-router-dom';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import styled from 'styled-components';
+import { useAuthCtx } from '../../store/AuthProvider';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
 
 function Header() {
+  const { isLoggedIn, logout } = useAuthCtx();
+
+  function logoutFire() {
+    signOut(auth)
+      .then(() => {
+        logout();
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  }
+
   return (
     <SHeader className="mb20">
       <Container className="flex">
@@ -18,7 +33,7 @@ function Header() {
           <NavLink to={'/login'}>
             <HeaderButton>Login</HeaderButton>
           </NavLink>
-          <HeaderButton>Logout</HeaderButton>
+          <HeaderButton onClick={logoutFire}>Logout</HeaderButton>
         </Nav>
       </Container>
     </SHeader>
