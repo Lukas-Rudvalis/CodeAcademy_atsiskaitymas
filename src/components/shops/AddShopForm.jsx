@@ -45,6 +45,7 @@ function AddShopForm({ onAddShop }) {
         .required('Required field'),
     }),
     onSubmit: (values) => {
+      values.timestamp = Date.now();
       onAddShop(values);
     },
   });
