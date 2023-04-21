@@ -6,7 +6,7 @@ function InputField({ type, ...rest }) {
   return type === 'textarea' ? (
     <Textarea rows={4} {...rest} />
   ) : (
-    <Input {...rest} />
+    <Input type={type} {...rest} />
   );
 }
 
