@@ -3,6 +3,8 @@ import LoginForm from '../components/auth/LoginForm';
 import { auth } from '../firebase/firebase';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import Title from '../components/ui/Title';
+import Container from '../components/ui/Container';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -18,11 +20,12 @@ function LoginPage() {
   }
 
   return (
-    <div>
-      {loading && <p>loading</p>}
-      {error && <p>{error.message}</p>}
+    <Container className="tac">
+      <Title fz={4} className="mb20">
+        Login
+      </Title>
       <LoginForm onLogin={login} />
-    </div>
+    </Container>
   );
 }
 

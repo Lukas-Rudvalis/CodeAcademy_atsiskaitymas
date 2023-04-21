@@ -3,6 +3,8 @@ import RegisterForm from '../components/auth/RegisterForm';
 import { auth } from '../firebase/firebase';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import Title from '../components/ui/Title';
+import Container from '../components/ui/Container';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -18,11 +20,12 @@ function RegisterPage() {
   }
 
   return (
-    <div>
-      {loading && <p>loading</p>}
-      {error && <p>{error.message}</p>}
+    <Container className="tac">
+      <Title fz={4} className="mb20">
+        Register
+      </Title>
       <RegisterForm onRegister={register} />
-    </div>
+    </Container>
   );
 }
 

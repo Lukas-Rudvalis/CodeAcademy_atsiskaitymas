@@ -1,6 +1,4 @@
 import React from 'react';
-import Title from '../../components/ui/Title';
-import Container from '../../components/ui/Container';
 import InputField from '../../components/ui/InputField';
 import Button from '../../components/ui/Button';
 import { useFormik } from 'formik';
@@ -28,10 +26,7 @@ function LoginForm({ onLogin }) {
   });
 
   return (
-    <Container className="tac">
-      <Title fz={4} className="mb20">
-        Login
-      </Title>
+    <>
       <Form onSubmit={formik.handleSubmit} className="flex-form">
         <div>
           <InputField
@@ -67,7 +62,7 @@ function LoginForm({ onLogin }) {
       <Text className="mt20">
         Don't have an account yet? <Link to={'/register'}>Register</Link>
       </Text>
-    </Container>
+    </>
   );
 }
 

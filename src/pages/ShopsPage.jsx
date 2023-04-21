@@ -5,6 +5,7 @@ import ShopsList from '../components/shops/ShopsList';
 import { collection, query } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import styled from 'styled-components';
 
 function ShopsPage() {
   const ref = collection(db, 'shops');
@@ -14,13 +15,19 @@ function ShopsPage() {
     value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
 
   return (
-    <Container>
+    <ShopsContainer>
       <Title fz={4} className="tac mb20">
         Shops
       </Title>
       <ShopsList list={docsWithUid} />
-    </Container>
+    </ShopsContainer>
   );
 }
+
+const ShopsContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default ShopsPage;
