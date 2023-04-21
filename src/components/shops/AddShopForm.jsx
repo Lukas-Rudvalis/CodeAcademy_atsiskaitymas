@@ -1,6 +1,4 @@
 import React from 'react';
-import Title from '../../components/ui/Title';
-import Container from '../../components/ui/Container';
 import InputField from '../../components/ui/InputField';
 import Button from '../../components/ui/Button';
 import { useFormik } from 'formik';
@@ -23,7 +21,9 @@ function AddShopForm({ onAddShop }) {
       town: 'Vilnius',
       startYear: '1970',
       description: 'This is a dummy shop',
-      imageUrl: 'https://picsum.photos/200/300',
+      imageUrl: `https://picsum.photos/id/${Math.ceil(
+        Math.random() * 1084,
+      )}/200/300`,
     },
     validationSchema: Yup.object({
       shopName: Yup.string()
@@ -50,31 +50,26 @@ function AddShopForm({ onAddShop }) {
   });
 
   return (
-    <Container className="tac">
-      <Title fz={4} className="mb20">
-        Add Shop
-      </Title>
-      <Form onSubmit={formik.handleSubmit} className="flex-form">
-        {inputsData.map((iObj) => (
-          <div key={iObj.id}>
-            <InputField
-              type={iObj.type}
-              placeholder={iObj.placeholder}
-              id={iObj.name}
-              value={formik.values[iObj.name]}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched[iObj.name] && formik.errors[iObj.name] ? (
-              <ErrorMsg>{formik.errors[iObj.name]}</ErrorMsg>
-            ) : null}
-          </div>
-        ))}
-        <Button type="submit" className="mt20">
-          Add
-        </Button>
-      </Form>
-    </Container>
+    <Form onSubmit={formik.handleSubmit} className="flex-form">
+      {inputsData.map((iObj) => (
+        <div key={iObj.id}>
+          <InputField
+            type={iObj.type}
+            placeholder={iObj.placeholder}
+            id={iObj.name}
+            value={formik.values[iObj.name]}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched[iObj.name] && formik.errors[iObj.name] ? (
+            <ErrorMsg>{formik.errors[iObj.name]}</ErrorMsg>
+          ) : null}
+        </div>
+      ))}
+      <Button type="submit" className="mt20">
+        Add
+      </Button>
+    </Form>
   );
 }
 

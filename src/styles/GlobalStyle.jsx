@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   img {
-  max-width: 100%;
+  width: 100%;
   }
 
   h1,
@@ -50,6 +50,16 @@ const GlobalStyle = createGlobalStyle`
   a {
   text-decoration: none;
   color: inherit;
+  }
+
+  ul{
+    list-style:none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li{
+    max-width:300px;
   }
 
   .mb20{
