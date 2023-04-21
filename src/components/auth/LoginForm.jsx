@@ -28,48 +28,46 @@ function LoginForm({ onLogin }) {
   });
 
   return (
-    <div>
-      <Container className="tac">
-        <Title fz={4} className="mb20">
+    <Container className="tac">
+      <Title fz={4} className="mb20">
+        Login
+      </Title>
+      <Form onSubmit={formik.handleSubmit} className="flex-form">
+        <div>
+          <InputField
+            type="email"
+            placeholder="Email"
+            id="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <ErrorMsg>{formik.errors.email}</ErrorMsg>
+          ) : null}
+        </div>
+        <div>
+          <InputField
+            type="password"
+            placeholder="Password"
+            id="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <ErrorMsg>{formik.errors.password}</ErrorMsg>
+          ) : null}
+        </div>
+        <Button type="submit" className="mt20">
           Login
-        </Title>
-        <Form onSubmit={formik.handleSubmit} className="flex-form">
-          <div>
-            <InputField
-              type="email"
-              placeholder="Email"
-              id="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <ErrorMsg>{formik.errors.email}</ErrorMsg>
-            ) : null}
-          </div>
-          <div>
-            <InputField
-              type="password"
-              placeholder="Password"
-              id="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <ErrorMsg>{formik.errors.password}</ErrorMsg>
-            ) : null}
-          </div>
-          <Button type="submit" className="mt20">
-            Login
-          </Button>
-        </Form>
-        <GoogleLogin />
-        <Text className="mt20">
-          Don't have an account yet? <Link to={'/register'}>Register</Link>
-        </Text>
-      </Container>
-    </div>
+        </Button>
+      </Form>
+      <GoogleLogin />
+      <Text className="mt20">
+        Don't have an account yet? <Link to={'/register'}>Register</Link>
+      </Text>
+    </Container>
   );
 }
 
