@@ -14,7 +14,7 @@ const inputsData = [
   { id: 5, type: 'text', name: 'imageUrl', placeholder: 'Image URL' },
 ];
 
-function AddShopForm({ onAddShop }) {
+function AddShopForm({ onAddShop, loading }) {
   const formik = useFormik({
     initialValues: {
       shopName: 'Shop 1',
@@ -67,7 +67,7 @@ function AddShopForm({ onAddShop }) {
           ) : null}
         </div>
       ))}
-      <Button type="submit" className="mt20">
+      <Button disabled={loading} type="submit" className="mt20">
         Add
       </Button>
     </Form>
@@ -91,6 +91,7 @@ const ErrorMsg = styled.p`
 
 AddShopForm.propTypes = {
   onAddShop: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 export default AddShopForm;
