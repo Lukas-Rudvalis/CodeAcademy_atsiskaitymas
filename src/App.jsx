@@ -21,7 +21,7 @@ function App() {
         />
         <Route
           path="/add"
-          element={isLoggedIn ? <AddShopPage /> : <Navigate to={'login'} />}
+          element={isLoggedIn ? <AddShopPage /> : <Navigate to={'/login'} />}
         />
         <Route
           path="/login"
