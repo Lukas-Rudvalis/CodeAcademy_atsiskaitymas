@@ -13,7 +13,7 @@ function SingleShop({ item }) {
         <Outline />
       </CardTop>
       <CartBottom>
-        <ShopTitle className="tac" h={2} fz={3}>
+        <ShopTitle className="tac mb20" h={2} fz={3}>
           {shopName}
         </ShopTitle>
         <div className="flex mb20">
