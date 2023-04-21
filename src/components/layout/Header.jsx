@@ -13,7 +13,7 @@ function Header() {
     <SHeader className="mb20">
       <Container className="flex">
         <NavLink to={'/'}>
-          <img src="/logo.png" alt="logo" />
+          <Logo src="/logo.png" alt="logo" />
         </NavLink>
         <Nav>
           {isLoggedIn && <NavLink to={'/'}>Shops</NavLink>}
@@ -36,6 +36,12 @@ const SHeader = styled.header`
 
   .active {
     color: var(--gray);
+  }
+`;
+
+const Logo = styled.img`
+  @media screen and (max-width: 500px) {
+    width: 80px;
   }
 `;
 
