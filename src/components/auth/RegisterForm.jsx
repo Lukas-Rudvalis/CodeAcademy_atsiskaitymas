@@ -31,7 +31,7 @@ function RegisterForm({ onRegister }) {
         <Title fz={4} className="mb20">
           Register
         </Title>
-        <form onSubmit={formik.handleSubmit} className="flex-form">
+        <Form onSubmit={formik.handleSubmit} className="flex-form">
           <div>
             <InputField
               type="email"
@@ -61,11 +61,19 @@ function RegisterForm({ onRegister }) {
           <Button type="submit" className="mt20">
             Register
           </Button>
-        </form>
+        </Form>
       </Container>
     </div>
   );
 }
+
+const Form = styled.form`
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-gray);
+  max-width: 500px;
+`;
 
 const ErrorMsg = styled.p`
   color: var(--error);
