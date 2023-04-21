@@ -74,9 +74,11 @@ function LoginForm({ onLogin }) {
 }
 
 const Form = styled.form`
+  margin: 0 auto;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--light-gray);
+  max-width: 500px;
 `;
 
 const Text = styled.p`
