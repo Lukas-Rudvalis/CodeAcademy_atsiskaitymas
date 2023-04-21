@@ -40,7 +40,7 @@ const SHeader = styled.header`
 `;
 
 const Logo = styled.img`
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     width: 80px;
   }
 `;
