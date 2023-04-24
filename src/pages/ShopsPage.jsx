@@ -5,7 +5,7 @@ import ShopsList from '../components/shops/ShopsList';
 import { collection, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Popup from '../components/ui/Popup';
 import Button from '../components/ui/Button';
@@ -43,7 +43,12 @@ function ShopsPage() {
         <Filters className="mb20">
           {uTowns.map((town) => (
             <li key={town}>
-              <Button onClick={() => setFilter(town)}>{town}</Button>
+              <FilterBtn
+                isActive={town === filter}
+                onClick={() => setFilter(town)}
+              >
+                {town}
+              </FilterBtn>
             </li>
           ))}
         </Filters>
@@ -62,6 +67,24 @@ function ShopsPage() {
     </>
   );
 }
+
+const FilterBtn = styled(Button)`
+  font-size: 14px;
+  padding: 3px 10px;
+
+  ${({ isActive }) => activeFilterStyle[isActive]};
+`;
+
+const activeFilterStyle = {
+  true: css`
+    background-color: var(--brown);
+    border-color: var(--brown);
+    &:hover {
+      background-color: var(--brown-hover);
+      border-color: var(--brown-hover);
+    }
+  `,
+};
 
 const Filters = styled.ul`
   display: flex;
