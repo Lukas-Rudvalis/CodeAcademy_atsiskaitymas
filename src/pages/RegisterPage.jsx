@@ -5,14 +5,17 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Title from '../components/ui/Title';
 import Container from '../components/ui/Container';
 import Popup from '../components/ui/Popup';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
+  const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
   function register({ email, password }) {
     createUserWithEmailAndPassword(email, password).then(() => {
-      if (!user) console.warn(error);
+      if (user) navigate('/');
+      else console.warn(error);
     });
   }
 
