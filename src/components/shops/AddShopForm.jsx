@@ -52,6 +52,7 @@ function AddShopForm({ onAddShop, loading }) {
     onSubmit: (values) => {
       if (loading) return;
       values.timestamp = Date.now();
+      values.town = values.town.charAt(0).toUpperCase() + values.town.slice(1);
       onAddShop(values);
     },
   });
