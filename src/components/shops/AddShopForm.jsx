@@ -17,13 +17,18 @@ const inputsData = [
 function AddShopForm({ onAddShop, loading }) {
   const formik = useFormik({
     initialValues: {
-      shopName: 'Shop 1',
-      town: 'Vilnius',
-      startYear: '1970',
-      description: 'This is a dummy shop',
-      imageUrl: `https://picsum.photos/id/${Math.ceil(
-        Math.random() * 1084,
-      )}/200/300`,
+      // shopName: 'Shop 1',
+      // town: 'Vilnius',
+      // startYear: '1970',
+      // description: 'This is a dummy shop',
+      // imageUrl: `https://picsum.photos/id/${Math.ceil(
+      //   Math.random() * 1084,
+      // )}/200/300`,
+      shopName: '',
+      town: '',
+      startYear: '',
+      description: '',
+      imageUrl: ``,
     },
     validationSchema: Yup.object({
       shopName: Yup.string()
