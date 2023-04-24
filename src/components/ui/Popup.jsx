@@ -23,6 +23,7 @@ const SPopup = styled.div`
   margin: 0 auto;
   max-width: 600px;
   padding: 10px 20px;
+  margin-bottom: 20px;
   border-radius: 20px 0;
   font-size: 20px;
   justify-content: space-between;
