@@ -12,7 +12,8 @@ function Grid({ children, className, cols = 3 }) {
 
 const SGrid = styled.ul`
   display: grid;
-  gap: 40px;
+  gap: 20px;
+  margin-bottom: 50px;
   grid-template-columns: repeat(${({ cols }) => cols}, 1fr);
 
   @media screen and (max-width: 900px) {

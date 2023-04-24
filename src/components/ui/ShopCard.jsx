@@ -8,7 +8,7 @@ function Card({ children }) {
 
 const SCard = styled.div`
   border-radius: 100px 0;
-  /* background-color: var(--brown); */
+  padding-right: 20px;
   max-width: 300px;
 `;
 
