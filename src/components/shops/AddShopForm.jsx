@@ -50,6 +50,7 @@ function AddShopForm({ onAddShop, loading }) {
         .required('Required field'),
     }),
     onSubmit: (values) => {
+      if (loading) return;
       values.timestamp = Date.now();
       onAddShop(values);
     },
