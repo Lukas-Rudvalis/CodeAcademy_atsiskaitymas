@@ -15,7 +15,7 @@ function LoginPage() {
   function login({ email, password }) {
     signInWithEmailAndPassword(email, password).then(() => {
       if (user) navigate('/');
-      else console.warn(error);
+      // else console.warn(error);
     });
   }
 

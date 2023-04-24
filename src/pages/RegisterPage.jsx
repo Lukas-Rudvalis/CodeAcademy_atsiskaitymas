@@ -15,7 +15,7 @@ function RegisterPage() {
   function register({ email, password }) {
     createUserWithEmailAndPassword(email, password).then(() => {
       if (user) navigate('/');
-      else console.warn(error);
+      // else console.warn(error);
     });
   }
 

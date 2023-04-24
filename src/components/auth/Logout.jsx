@@ -11,11 +11,11 @@ function Logout() {
     signOut(auth)
       .then(() => {
         navigate('/login');
-        console.log('logged out');
+        // console.log('logged out');
       })
       .catch((error) => {
         // An error happened.
-        console.warn(error);
+        // console.warn(error);
       });
   }
 

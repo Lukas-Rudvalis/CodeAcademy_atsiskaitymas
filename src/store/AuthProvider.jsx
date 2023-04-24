@@ -12,8 +12,8 @@ const AuthContext = createContext({
 function AuthProvider({ children }) {
   const [user, isLoading] = useAuthState(auth);
   const isLoggedIn = !!user;
-  console.log('user ===', user);
-  console.log('isLoggedIn ===', isLoggedIn);
+  // console.log('user ===', user);
+  // console.log('isLoggedIn ===', isLoggedIn);
 
   const authCtx = {
     user,

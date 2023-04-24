@@ -22,7 +22,7 @@ function AddShopPage() {
       })
       .catch((err) => {
         setError(err);
-        console.warn(err);
+        // console.warn(err);
       })
       .finally(() => setLoading(false));
   }
