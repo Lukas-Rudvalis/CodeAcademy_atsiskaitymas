@@ -36,6 +36,7 @@ const SHeader = styled.header`
 
   .active {
     color: var(--gray);
+    text-decoration: underline;
   }
 `;
 
